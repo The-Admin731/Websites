@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunflower Tattoo | Custom Tattoos & Piercings in Chicago</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                ☀️ SUNFLOWER TATTOO
+            </a>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#artists" onclick="toggleMenu()">Artists</a></li>
+                <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+                <li><a href="#reviews" onclick="toggleMenu()">Reviews</a></li>
+                <li><a href="#booking" onclick="toggleMenu()">Booking</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>SUNFLOWER TATTOO</h1>
+        <p>Custom Tattoos & Professional Piercings in Chicago, IL</p>
+        <div class="status-badge" id="status-badge">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="status-text">Checking hours...</span>
+        </div>
+    </section>
+
+    <!-- ARTISTS -->
+    <section class="section" id="artists">
+        <h2 class="section-title">Resident Artists</h2>
+        <div class="artists-grid">
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>RED S.</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>TREVOR</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>Rigo</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>JOSE</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>Chris</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>Melissa</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+                </div>
+                <h3>AMBER</h3>
+                <!-- Specialty placeholder -->
+                <p>Specialty to be confirmed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+        <h2 class="section-title">Work Gallery</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterGallery('all', event)">All</button>
+            <button class="filter-btn" onclick="filterGallery('traditional', event)">Traditional</button>
+            <button class="filter-btn" onclick="filterGallery('blackgrey', event)">Black & Grey</button>
+            <button class="filter-btn" onclick="filterGallery('color', event)">Color</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+            <div class="gallery-item" data-category="traditional" onclick="openLightbox(this)">
+                <svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#2a2a2a"/><text x="50" y="50" fill="#d4af37" font-size="10" text-anchor="middle" dominant-baseline="middle">Traditional Flash</text></svg>
+            </div>
+            <div class="gallery-item" data-category="blackgrey" onclick="openLightbox(this)">
+                <svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#1e1e1e"/><text x="50" y="50" fill="#d4af37" font-size="10" text-anchor="middle" dominant-baseline="middle">Black & Grey Piece</text></svg>
+            </div>
+            <div class="gallery-item" data-category="color" onclick="openLightbox(this)">
+                <svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#332222"/><text x="50" y="50" fill="#d4af37" font-size="10" text-anchor="middle" dominant-baseline="middle">Color Work</text></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p>"The atmosphere in the shop is super welcoming. Everyone on the team was incredibly friendly and professional throughout the entire process!"</p>
+                <div class="review-author">- Daniela</div>
+            </div>
+            <div class="review-card">
+                <p>"Top-notch quality work. They even offer free snacks and water while you wait. Small details like that make a huge difference."</p>
+                <div class="review-author">- Dora</div>
+            </div>
+            <div class="review-card">
+                <p>"An amazing studio experience. Highly recommended if you want clean lines, great artwork, and a comfortable setting."</p>
+                <div class="review-author">- Asa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="section" id="booking">
+        <h2 class="section-title">Request an Appointment</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo: Appointment request submitted successfully.');">
+            <h3 class="form-title">
+                SUNFLOWER TATTOO APPOINTMENT REQUEST FORM
+            </h3>
+            
+            <div class="form-row">
+                <div>
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" required>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" placeholder="(000) 000-0000" pattern="[\(]\d{3}[\)] \d{3}[\-]\d{4}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="example@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>What's the best way to contact you?</label>
+                <select>
+                    <option>Text</option>
+                    <option>Email</option>
+                    <option>Phone call</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Artist</label>
+                <select>
+                    <option>No preference / First available</option>
+                    <option>RED S.</option>
+                    <option>TREVOR</option>
+                    <option>Rigo</option>
+                    <option>JOSE</option>
+                    <option>Chris</option>
+                    <option>Melissa</option>
+                    <option>AMBER</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>What are you looking to get done?</label>
+                <textarea rows="3" placeholder="Describe your tattoo idea..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Reference Images (Optional)</label>
+                <input type="file" class="file-input">
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label>Style</label>
+                    <select>
+                        <option>Black and Gray</option>
+                        <option>Color</option>
+                    </select>
+                </div>
+                <div>
+                    <label>SIZE?</label>
+                    <input type="text" placeholder="sleeve, half sleeve, baseball, golf ball etc.">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>PLACEMENT?</label>
+                <input type="text" placeholder="e.g. Forearm, Ribs, Back">
+            </div>
+
+            <div class="form-group">
+                <label>Do you have a budget you are working with?</label>
+                <input type="text" placeholder="e.g. $200 - $400">
+            </div>
+
+            <div class="form-group">
+                <label>Please add dates and times that would work best for you</label>
+                <input type="text" placeholder="e.g. Tuesdays or Saturdays after 2 PM">
+            </div>
+
+            <div class="form-group">
+                <label>Is there anything else you'd like to mention?</label>
+                <textarea rows="2" placeholder="Additional details..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" id="lightbox-target" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>3446 N Milwaukee Ave, Chicago, IL 60641 | Call: 773-657-3972</p>
+        <p class="footer-status" id="footer-status"></p>
+        <p class="footer-copy">&copy; 2026 Sunflower Tattoo. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

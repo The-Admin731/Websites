@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Request — Jose Tattoo</title>
+  <style>
+    :root {
+      --primary: #111;
+      --accent: #0066cc;
+      --bg: #f9f9f9;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+      --error: #d93025;
+      --success: #188038;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: #333;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    p.subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .flow-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-option {
+      border: 2px solid var(--border);
+      padding: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .card-option.active {
+      border-color: var(--primary);
+      background-color: #f0f0f0;
+    }
+
+    .card-option input[type="radio"] {
+      display: none;
+    }
+
+    .card-option .font-title {
+      font-weight: bold;
+      display: block;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* HONEYPOT: Field hidden off-screen */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      height: 0;
+      width: 0;
+      z-index: -1;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button[type="submit"]:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    #formStatus {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Appointment Request</h1>
+  <p class="subtitle">Complete the form to inquire about a Flash design or a Custom project.</p>
+
+  <form id="bookingForm" novalidate>
+    
+    <!-- HONEYPOT FIELD -->
+    <div class="hp-field" aria-hidden="true">
+      <label for="company_ref">Do not fill this field if you are human</label>
+      <input type="text" id="company_ref" name="company_ref" tabindex="-1" autocomplete="off">
+    </div>
+
+    <!-- PROJECT TYPE SELECTION -->
+    <div class="flow-selector">
+      <label class="card-option active" id="cardFlash">
+        <input type="radio" name="projectType" value="Flash" checked>
+        <span class="font-title">Flash Design</span>
+        <small style="color:#666;">Available pre-made designs</small>
+      </label>
+      
+      <label class="card-option" id="cardCustom">
+        <input type="radio" name="projectType" value="Custom">
+        <span class="font-title">Custom Project</span>
+        <small style="color:#666;">Personalized idea</small>
+      </label>
+    </div>
+
+    <!-- CONTACT INFORMATION -->
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required placeholder="Ex. Ana Gómez">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="Ex. +1 312 555 0199">
+    </div>
+
+    <!-- CUSTOM SPECIFIC FIELDS -->
+    <div id="customFields" class="hidden">
+      
+      <div class="form-group">
+        <label for="colorType">Color Style *</label>
+        <select id="colorType" name="colorType">
+          <option value="">Select an option...</option>
+          <option value="Black & Grey">Black & Grey (Shading)</option>
+          <option value="Color">Color</option>
+          <option value="Mixto">Mixed (Combined)</option>
+        </select>
+      </div>
+
+      <!-- CONDITIONAL FIELD FOR MIXED STYLE -->
+      <div id="mixedDetailsGroup" class="form-group hidden">
+        <label for="mixedDetails">Color / Shading Specification *</label>
+        <textarea id="mixedDetails" name="mixedDetails" rows="2" placeholder="Specify which elements should be in color and which in shading/B&G..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="size">Approx. Size (Inches or Cm) *</label>
+        <input type="text" id="size" name="size" placeholder="Ex. 4x6 inches / 10x15 cm">
+      </div>
+
+      <div class="form-group">
+        <label for="bodyLocation">Body Location *</label>
+        <input type="text" id="bodyLocation" name="bodyLocation" placeholder="Ex. RIGHT FOREARM, RIBS">
+      </div>
+
+      <div class="form-group">
+        <label for="budget">Estimated Budget ($USD) *</label>
+        <input type="text" id="budget" name="budget" placeholder="Ex. $200 - $300">
+      </div>
+
+      <div class="form-group">
+        <label for="availability">Preferred Days / Times *</label>
+        <input type="text" id="availability" name="availability" placeholder="Ex. Saturday afternoons, Fridays all day">
+      </div>
+
+      <div class="form-group">
+        <label for="references">Reference Images (Min 1, Max 3, up to 5MB each) *</label>
+        <input type="file" id="references" accept="image/png, image/jpeg, image/webp" multiple>
+        <small id="fileCount" style="display:block; color:#666; margin-top:0.3rem;"></small>
+        
+        <!-- LISTA VISUAL DE IMÁGENES ACUMULADAS -->
+        <ul id="fileList" style="list-style: none; margin-top: 0.5rem; padding: 0;"></ul>
+      </div>
+
+      <!-- DEPOSIT MODULE -->
+      <div id="depositModule" class="form-group hidden">
+        <label for="depositTier">Required Deposit Level *</label>
+        <select id="depositTier" name="depositTier">
+          <option value="">Select deposit level...</option>
+          <option value="pequeno">Small (under 3 inches) — $50</option>
+          <option value="mediano">Medium (3–6 inches) — $100</option>
+          <option value="grande">Large / multi-session — $175</option>
+        </select>
+        <small style="display:block; color:#666; margin-top:0.2rem;">
+          This deposit will be applied toward the final cost of your tattoo. Non-refundable if canceled with less than 48 hours notice.
+        </small>
+      </div>
+
+    </div>
+
+    <!-- ADDITIONAL NOTES -->
+    <div class="form-group">
+      <label for="notes">Additional Notes or Comments</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Details about the flash design you selected, extra ideas, etc."></textarea>
+    </div>
+
+    <button type="submit" id="submitBtn">Submit Appointment Request</button>
+    <div id="formStatus"></div>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
